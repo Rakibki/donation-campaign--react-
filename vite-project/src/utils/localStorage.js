@@ -1,3 +1,4 @@
+
 const getDonation = () => {
     const donationItems = localStorage.getItem('donations')
     if(donationItems) {
@@ -11,9 +12,9 @@ const getDonation = () => {
 
 
 const saveToLs = (id) => {
-    donationItems = getDonation();
-    donationItems.push(id)
-    localStorage.setItem(JSON.stringify(donationItems))
+    const DonationItems = getDonation();
+    DonationItems.push(id)
+    localStorage.setItem('donations', JSON.stringify(DonationItems))
 }
 
 
