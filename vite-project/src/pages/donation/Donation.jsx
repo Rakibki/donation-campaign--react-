@@ -25,6 +25,9 @@ const Donation = () => {
 
   return (
     <div>
+     <div className="flex justify-center mt-4">
+        {DonationItems.length < 1 && <span>No Donation</span>}
+     </div>
       <div className="grid gap-2 px-8 md:px-16 grid-cols-1 md:grid-cols-2">
         {isShowAll
           ? DonationItems.length > 0 && DonationItems.slice(0, 4).map((item) => (
@@ -35,7 +38,7 @@ const Donation = () => {
             ))}
       </div>
       <div className="flex justify-center mt-4">
-        {DonationItems.length > 3 && (
+        {DonationItems.length > 4 && (
           <button onClick={() => setIsSHowAll(!isShowAll)} className="text-white mb-6 font-semibold px-4 rounded-md py-2 bg-[#009444]">
             {isShowAll ? "Show All" : "See less"}
           </button>

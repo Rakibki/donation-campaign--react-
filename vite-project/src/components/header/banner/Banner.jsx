@@ -1,7 +1,12 @@
 import React from "react";
 import banner from "../../../assets/images/doctors.jpg";
 
-const Banner = () => {
+const Banner = ({setInputText, handleSearch, value}) => {
+  const handleChange = (e) => {
+    const text = e.target.value;
+    setInputText(text)
+  }
+
   return (
     <div
       className="h-screen  w-full relative"
@@ -13,8 +18,8 @@ const Banner = () => {
             I Grow By Helping People In Need
           </h1>
           <div className="flex mt-5 justify-center">
-            <input placeholder="Search here...." type="text" className="py-2 bg-white border-2 border-r-0 rounded-l-lg px-4 outline-none" />
-            <button className="bg-[#FF444A] rounded-r-lg text-white font-semibold py-2 px-4">Search</button>
+            <input value={value} onChange={handleChange} placeholder="Search here...." type="text" className="py-2 bg-white border-2 border-r-0 rounded-l-lg px-4 outline-none" />
+            <button onClick={handleSearch} className="bg-[#FF444A] rounded-r-lg text-white font-semibold py-2 px-4">Search</button>
           </div>
         </div>
       </div>

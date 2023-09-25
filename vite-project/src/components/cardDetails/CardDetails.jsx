@@ -1,17 +1,26 @@
 import { useLoaderData, useParams } from 'react-router-dom'
 import localStorage from '../../utils/localStorage'
 import swal from 'sweetalert';
+import { useEffect, useState } from 'react';
 
 
 const CardDetails = () => {
-    const items = useLoaderData()
+    const [items, setItems] = useState([])
+    useEffect(() => {
+        fetch('/data.json')
+        .then((res) => res.json())
+        .then((data) => setItems(data))
+    },[])
+
+
     const {id} = useParams()
-    const item = items?.find((card) => card.id == id)
+    const item = items.length > 0 && items?.find((card) => card.id == id)
 
     const handleSavaTols = () => {
        localStorage.saveToLs(id)
        swal("Good job!", "successful Donate", "success");
     }
+
 
     return (
         <div className=' px-4 my-4 md:px-16'>
