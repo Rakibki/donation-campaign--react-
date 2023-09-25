@@ -12,11 +12,11 @@ const Card = ({item}) => {
     return (
     <div onClick={handleClick} className="card cursor-pointer card-compact shadow-md">
         <div className='h-[150px]'><img className='w-full h-full' src={item.image} alt="Shoes" /></div>
-        <div className={`bg-[${card_bg_color}] p-4`}>
-                <span className={`text-sm p-2 rounded-md font-semibold text-[${text_color}] bg-[${category_bg_color}]`}>
+        <div style={{backgroundColor: `${card_bg_color}`}} className={`p-4`}>
+                <span style={{color: `${text_color}`, backgroundColor: `${category_bg_color}`}} className={`text-sm p-2 rounded-md font-semibold `}>
                     {Category}
                 </span>
-            <h2 className={`text-[${text_color}] mt-3 font-semibold`}>{title}</h2>
+            <h2 style={{color: `${text_color}`}} className="mt-3 font-semibold">{title}</h2>
         </div>
     </div>
   )

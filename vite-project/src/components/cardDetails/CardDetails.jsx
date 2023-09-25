@@ -1,5 +1,7 @@
 import { useLoaderData, useParams } from 'react-router-dom'
 import localStorage from '../../utils/localStorage'
+import swal from 'sweetalert';
+
 
 const CardDetails = () => {
     const items = useLoaderData()
@@ -8,6 +10,7 @@ const CardDetails = () => {
 
     const handleSavaTols = () => {
        localStorage.saveToLs(id)
+       swal("Good job!", "successful Donate", "success");
     }
 
     return (
@@ -15,11 +18,10 @@ const CardDetails = () => {
             <div className='w-full relative'>
                 <img className='w-full max-h-[420px]' src={item.image} alt="" />
                 <div className='absolute py-5 px-7 bg-[#0b0b0b66] w-full bottom-0 left-0'>
-                    <button onClick={handleSavaTols} className='py-2.5 font-semibold text-white rounded-md px-3.5 bg-[#FF444A]'>Donate ${item.price}</button>
+                    <button style={{backgroundColor: `${item.text_color}`, color: "white", borderRadius: "6px", padding: "8px 18px"}} onClick={handleSavaTols} className='font-semibold text-white]'>Donate ${item.price}</button>
                 </div>
             </div>
             
-
 
             <div className='w-full'>
                 <h1 className='text-2xl mt-4 font-semibold'>{item.title}</h1>
