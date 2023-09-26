@@ -1,6 +1,5 @@
 import { useLoaderData, useParams } from 'react-router-dom'
 import localStorage from '../../utils/localStorage'
-import swal from 'sweetalert';
 import { useEffect, useState } from 'react';
 
 
@@ -18,7 +17,6 @@ const CardDetails = () => {
 
     const handleSavaTols = () => {
        localStorage.saveToLs(id)
-       swal("Good job!", "successful Donate", "success");
     }
 
 

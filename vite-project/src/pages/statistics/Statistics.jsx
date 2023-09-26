@@ -54,8 +54,6 @@ const Statistics = () => {
     { value: calculateDonationPercentage() },
   ];
 
-  console.log(data);
-
   return (
     <div>
       <div className="flex h-72 justify-center items-center">

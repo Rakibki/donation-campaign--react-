@@ -1,3 +1,4 @@
+import swal from 'sweetalert';
 
 const getDonation = () => {
     const donationItems = localStorage.getItem('donations')
@@ -13,7 +14,13 @@ const getDonation = () => {
 
 const saveToLs = (id) => {
     const DonationItems = getDonation();
-    DonationItems.push(id)
+    const exist = DonationItems.find((item) => item == id)
+    if(exist) {
+       return swal("Good job!", " already Donate", "error");
+    }else {
+        DonationItems.push(id)
+        swal("Good job!", "successful Donate", "success");
+    }
     localStorage.setItem('donations', JSON.stringify(DonationItems))
 }
 
